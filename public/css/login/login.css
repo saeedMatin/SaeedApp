@@ -1,0 +1,170 @@
+ @font-face {
+            font-family: "Font Awesome 5 Brands";
+            font-style: normal;
+            font-weight: normal;
+            font-display: auto;
+            src: url(/lib/font-awesome/web-fonts-with-css/webfonts/fa-brands-400.eot?);
+            src: url(/lib/font-awesome/web-fonts-with-css/webfonts/fa-brands-400.eot?#iefix) format("embedded-opentype"),
+            url(/lib/font-awesome/web-fonts-with-css/webfonts/fa-brands-400.woff2) format("woff2"),
+            url(/lib/font-awesome/web-fonts-with-css/webfonts/fa-brands-400.woff) format("woff"),
+            url(/lib/font-awesome/web-fonts-with-css/webfonts/fa-brands-400.ttf) format("truetype"),
+            url(/lib/font-awesome/web-fonts-with-css/webfonts/fa-brands-400.svg#fontawesome) format("svg")
+        }
+
+        .fab {
+            font-family: "Font Awesome 5 Brands"
+        }
+
+        @font-face {
+            font-family: "Font Awesome 5 Pro";
+            font-style: normal;
+            font-weight: 900;
+            font-display: auto;
+            src: url(/lib/font-awesome/web-fonts-with-css/webfonts/fa-light-300.eot?);
+            src: url(/lib/font-awesome/web-fonts-with-css/webfonts/fa-light-300.eot?#iefix) format("embedded-opentype"),
+            url(/lib/font-awesome/web-fonts-with-css/webfonts/fa-light-300.woff2) format("woff2"),
+            url(/lib/font-awesome/web-fonts-with-css/webfonts/fa-light-300.woff) format("woff"),
+            url(/lib/font-awesome/web-fonts-with-css/webfonts/fa-light-300.ttf) format("truetype"),
+            url(/lib/font-awesome/web-fonts-with-css/webfonts/fa-light-300.svg#fontawesome) format("svg")
+        }
+
+        .fal {
+            font-weight: 900
+        }
+
+        @font-face {
+            font-family: "Font Awesome 5 Pro";
+            font-style: normal;
+            font-weight: 900;
+            font-display: auto;
+            src: url(/lib/font-awesome/web-fonts-with-css/webfonts/fa-regular-400.eot?);
+            src: url(/lib/font-awesome/web-fonts-with-css/webfonts/fa-regular-400.eot?#iefix) format("embedded-opentype"),
+            url(/lib/font-awesome/web-fonts-with-css/webfonts/fa-regular-400.woff2) format("woff2"),
+            url(/lib/font-awesome/web-fonts-with-css/webfonts/fa-regular-400.woff) format("woff"),
+            url(/lib/font-awesome/web-fonts-with-css/webfonts/fa-regular-400.ttf) format("truetype"),
+            url(/lib/font-awesome/web-fonts-with-css/webfonts/fa-regular-400.svg#fontawesome) format("svg")
+        }
+
+        .fal, .far {
+            font-family: "Font Awesome 5 Pro"
+        }
+
+        .far {
+            font-weight: 900
+        }
+
+        @font-face {
+            font-family: "Font Awesome 5 Pro";
+            font-style: normal;
+            font-weight: 900;
+            font-display: auto;
+            src: url(/lib/font-awesome/web-fonts-with-css/webfonts/fa-solid-900.eot?);
+            src: url(/lib/font-awesome/web-fonts-with-css/webfonts/fa-solid-900.eot?#iefix) format("embedded-opentype"),
+            url(/lib/font-awesome/web-fonts-with-css/webfonts/fa-solid-900.woff2) format("woff2"),
+            url(/lib/font-awesome/web-fonts-with-css/webfonts/fa-solid-900.woff) format("woff"),
+            url(/lib/font-awesome/web-fonts-with-css/webfonts/fa-solid-900.ttf) format("truetype"),
+            url(/lib/font-awesome/web-fonts-with-css/webfonts/fa-solid-900.svg#fontawesome) format("svg")
+        }
+
+        .fa, .fas {
+            font-family: "Font Awesome 5 Pro";
+            font-weight: 900
+        }
+
+        .fa, .fas, .far, .fal, .fab {
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-font-smoothing: antialiased;
+            display: inline-block;
+            font-style: normal;
+            font-variant: normal;
+            text-rendering: auto;
+            line-height: 1
+        }
+
+.right{
+    text-align: right;
+}
+.error{
+color: red;
+}
+
+.validate-success{
+    border-color: green;
+}
+.validate-failed{
+    border-color: red;
+}
+.lable {
+    letter-spacing: -0.02em;
+    font-feature-settings: 'calt' off;
+    color: #667080;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+
+}
+.input-number{
+    position: relative;
+}
+.input-number i {
+    position: absolute;
+    top: 50%;
+    left: 7px;
+    transform: translateY(-50%) rotate(180deg);
+    color: #6c757d;
+}
+.placeHolder
+{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: right;
+    letter-spacing: -0.02em;
+    font-feature-settings: 'calt' off;
+    color: #667080;
+}
+.a{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: #000000;
+}
+.b{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+}
+.c{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+}
+.btn-txt{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 22px;
+text-align: center;
+letter-spacing: -0.02em;
+font-feature-settings: 'calt' off;
+color: #FFFFFF;
+}
+
+
+
