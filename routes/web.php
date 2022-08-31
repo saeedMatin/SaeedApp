@@ -3,24 +3,18 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+    return view('login.login', ['title' => 'Login Page']);
 });
 
-// Route::prefix('login')->namespace('App\Http\Controllers')->group(function () {
-//     Route::get('/', 'LoginController@index');
-
-//     Route::post('/createcode', 'LoginController@CreateCode');
-
-//     // Route::get('/createcode', 'LoginController@_CreateCode');
-
-//     Route::post('/CheckCode', 'LoginController@CheckCode');
-// });
 Route::prefix('login')->namespace('App\Http\Controllers')->group(function () {
-    Route::view('/', 'login/login', data: ['title' => 'login']);
+    Route::get('/', 'LoginController@index');
 
-    Route::post('/', 'LoginController@CreateCode');
+    Route::post('/createcode', 'LoginController@CreateCode');
 
-    // Route::get('/createcode', 'LoginController@_CreateCode');
+    Route::get('/confirm', 'LoginController@ConfirmCode');
 
-    Route::post('/CheckCode', 'LoginController@CheckCode');
+    Route::post('/confirm', 'LoginController@CheckCode');
+
+    Route::get('/success', 'LoginController@Success');
 });

@@ -18,6 +18,7 @@ class LoginController extends Controller
     public function CreateCode(OTPRequest $request)
     {
         session(['PhoneNumber' => request('PhoneNumber')]);
+        session(['OTPSuccess' => request('false')]);
         $mobileNumber = request('PhoneNumber');
         $validate_data = $request->validated();
         $codeGenerated = $this->CodeGenerate($mobileNumber);
@@ -29,21 +30,22 @@ class LoginController extends Controller
         // }
         // return $this->TestAction();
     }
-    public function TestAction()
+    public function ConfirmCode()
     {
-        return view('login.GetCode', ['PhoneNumber' => session('mobileNumber'), 'title' => 'login']);
+        $mobileNumber = session('PhoneNumber');
+        return view('login.ConfirmCode', ['PhoneNumber' => $mobileNumber, 'title' => 'Confirm']);
     }
     public function CheckCode(OTPCheckRequest $request)
     {
-        $mobileNumber = request('PhoneNumber');
-        $Code = request('CodeNumber');
-        $validate_data = $request->validated();
-        $codeGenerated = $this->CodeCheck($mobileNumber);
-        if ((int)$codeGenerated == (int)$Code) { //success
-            return view('login.success', ['title' => 'login']);
-        } else {
-            return back()->with(['myerrors' => 'کد وارد شده معتبر نمیباشد', 'PhoneNumber' => $mobileNumber, 'title' => 'login']);
+        session(['OTPSuccess' => 'true']);
+        return true;
+    }
+    public function Success()
+    {
+        if (session('OTPSuccess') == 'true') {
+            return view('login.success', ['title' => 'OTP Confirmation Successfull']);
         }
+        return redirect('/login');
     }
 
     public function CodeGenerate($PhoneNumber)

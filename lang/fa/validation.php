@@ -174,6 +174,7 @@ return [
         'terms'                 => 'شرایط',
         'province'              => 'استان',
         'body'                  => 'متن',
-        'PhoneNumber'          => 'شماره تلفن همراه'
+        'PhoneNumber'           => 'شماره تلفن همراه',
+        'CodeNumber'            => 'کد ارسالی'
     ],
 ];
