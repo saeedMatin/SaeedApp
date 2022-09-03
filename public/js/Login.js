@@ -1,3 +1,4 @@
+var clear=false;
 //Phone number entry page
 $('#error_li').hide();
 $('.input-number i').hide();
@@ -13,24 +14,36 @@ $('#PhoneNumber,#CodeNumber').on('keydown', function(evt) {
 
 
 $('#PhoneNumber').on('keyup', function() {
-
-    if(formatPhoneNumber($('#PhoneNumber').val()))
+    if ($('#PhoneNumber').val().length == 0)
     {
-       PhoneValidate(1);
+        $('.input-number i').hide();
     }
     else
     {
-       $('#btn_next').attr('disabled','disabled');
-        if($('#PhoneNumber').val().length==11)
+        $('.input-number i').show();
+        if(formatPhoneNumber($('#PhoneNumber').val()))
         {
-            $('#error_li').text("شماره وارد شده صحیح نمیباشد.");
-            PhoneValidate(0);
+            PhoneValidate(1);
         }
         else
         {
-            PhoneValidate(-1)
+        $('#btn_next').attr('disabled','disabled');
+            if($('#PhoneNumber').val().length==11)
+            {
+                $('#error_li').text("شماره وارد شده صحیح نمیباشد.");
+                PhoneValidate(0);
+            }
+            else
+            {
+                PhoneValidate(-1)
+            }
         }
     }
+});
+$(document).mousedown(function (event) {
+    var specificDiv = $(".input-number i");
+    if (specificDiv.is(event.target))
+        clear=true;
 });
 $('#PhoneNumber').on('blur', function() {
     if(formatPhoneNumber($('#PhoneNumber').val()))
@@ -39,18 +52,23 @@ $('#PhoneNumber').on('blur', function() {
     }
     else
     {
-        $('#btn_next').attr('disabled','disabled');
-        $('.fa-backspace').removeAttr('disabled');
-        if($('#PhoneNumber').val().length!=0)
+        if (clear==false)
         {
-            $('#error_li').text("شماره موبایل باید 11 رقم باشد");
-            PhoneValidate(0);
+            $('#btn_next').attr('disabled', 'disabled');
+            $('.fa-backspace').removeAttr('disabled');
+            if ($('#PhoneNumber').val().length != 0) {
+                $('#error_li').text("شماره موبایل باید 11 رقم باشد");
+                PhoneValidate(0);
+            }
         }
+
     }
 });
  $('.input-number i').click(function(){
     $('#PhoneNumber').val(null);
     PhoneValidate(-1);
+    $('.input-number i').hide();
+    clear = false;
  });
 function formatPhoneNumber(phoneNumberString) {
     var cleaned = ('' + phoneNumberString).replace(/\D/g, '');
@@ -63,16 +81,16 @@ function formatPhoneNumber(phoneNumberString) {
 function PhoneValidate(res)
 {
     switch (res) {
-        case 1:
+        case 1://isValid
             $('#PhoneNumber').addClass("validate-success");
             $('#PhoneNumber').removeClass("validate-failed");
             $('#btn_next').removeAttr('disabled');
             $('#error_li').hide();
             $('#validate_ul').hide();
-            $('.input-number i').hide();
+            //$('.input-number i').hide();
             $('#error_li').text("");
             break;
-        case 0:
+        case 0:// invalid
             $('#PhoneNumber').addClass("validate-failed");
             $('#PhoneNumber').removeClass("validate-success");
             $('#error_li').show();
@@ -80,13 +98,13 @@ function PhoneValidate(res)
             $('.input-number i').show();
             $('#btn_next').attr('disabled','disabled');
             break;
-        default:
+        default://not complete (les than 11 characters)
             $('#PhoneNumber').removeClass("validate-failed");
             $('#PhoneNumber').removeClass("validate-success");
             $('#error_li').hide();
             $('#error_li').text("");
             $('#validate_ul').hide();
-            $('.input-number i').hide();
+            // $('.input-number i').hide();
             $('#btn_next').attr('disabled','disabled');
             break;
     }
